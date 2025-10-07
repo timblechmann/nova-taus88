@@ -1,0 +1,21 @@
+[package]
+name = "nova-taus88"
+version = "0.1.0"
+edition = "2024"
+
+[features]
+std = []
+nightly = []
+
+[dependencies]
+rand = "0.9.2"
+rand_core = "0.9.3"
+
+[dev-dependencies]
+criterion = "0.5"
+rand_xorshift = "0.4.0"
+rand_xoshiro = "0.7.0"
+
+[[bench]]
+name = "rng_benchmark"
+harness = false
