@@ -4,15 +4,15 @@
 //! To enable the nightly-only features, compile with the `nightly` feature flag.
 //! This requires a nightly toolchain.
 
-#[cfg(not(feature = "nightly"))]
-mod scalar;
-#[cfg(not(feature = "nightly"))]
-pub use scalar::Taus88;
+pub mod scalar;
+#[cfg(feature = "nightly")]
+pub mod simd;
 
 #[cfg(feature = "nightly")]
-mod simd;
-#[cfg(feature = "nightly")]
 pub use simd::Taus88;
+
+#[cfg(not(feature = "nightly"))]
+pub use scalar::Taus88;
 
 #[cfg(test)]
 mod tests;

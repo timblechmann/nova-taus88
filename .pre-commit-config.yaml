@@ -12,10 +12,18 @@ repos:
   rev: v1.0
   hooks:
   - id: cargo-check
+    args: [--all-targets]
   - id: fmt
+  - id: clippy
+    args: [--all-targets, --tests, --, -D, warnings]
 
 - repo: https://github.com/macisamuele/language-formatters-pre-commit-hooks
   rev: v2.14.0
   hooks:
   - id: pretty-format-yaml
     args: [--autofix]
+
+- repo: https://github.com/DavidAnson/markdownlint-cli2
+  rev: v0.18.1
+  hooks:
+  - id: markdownlint-cli2
